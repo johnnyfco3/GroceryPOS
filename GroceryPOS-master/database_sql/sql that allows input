@@ -1,0 +1,307 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Oct 28, 2020 at 05:25 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `GroceryStore`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_info`
+--
+
+CREATE TABLE `customer_info` (
+  `customer_id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `middle_initial` varchar(1) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `phone_number` varchar(50) NOT NULL,
+  `rewards` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dailysales`
+--
+
+CREATE TABLE `dailysales` (
+  `daily_sales_id` int(11) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `number_of_sales` varchar(30) NOT NULL,
+  `employee_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee_id`
+--
+
+CREATE TABLE `employee_id` (
+  `employee_id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `pin_number` varchar(20) NOT NULL,
+  `employee_information` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee_info`
+--
+
+CREATE TABLE `employee_info` (
+  `employee_information` int(11) NOT NULL,
+  `first_name` varchar(150) NOT NULL,
+  `middle_initial` varchar(5) NOT NULL,
+  `last_name` varchar(150) NOT NULL,
+  `user_id` varchar(150) NOT NULL,
+  `phone_number` varchar(15) NOT NULL,
+  `SSN` varchar(15) NOT NULL,
+  `street_address` varchar(200) NOT NULL,
+  `city` varchar(200) NOT NULL,
+  `state` varchar(4) NOT NULL,
+  `zip_code` varchar(11) NOT NULL,
+  `start_date` varchar(100) NOT NULL,
+  `end_date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventory_system`
+--
+
+CREATE TABLE `inventory_system` (
+  `product_id` int(11) NOT NULL,
+  `QR_code` varchar(100) NOT NULL,
+  `serial_number` varchar(100) NOT NULL,
+  `make` varchar(100) NOT NULL,
+  `model_number` varchar(100) NOT NULL,
+  `model_name` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `link_supplier_data` varchar(100) NOT NULL,
+  `cost` varchar(50) NOT NULL,
+  `selling_price` varchar(50) NOT NULL,
+  `MSRP` varchar(100) NOT NULL,
+  `in_stock` varchar(50) NOT NULL,
+  `reorder_amount` varchar(50) NOT NULL,
+  `base_stock` varchar(50) NOT NULL,
+  `vendor_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `storelevel_signup`
+--
+
+CREATE TABLE `storelevel_signup` (
+  `ID` int(11) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `phone_number` varchar(11) NOT NULL,
+  `number_of_stores` varchar(10) NOT NULL,
+  `company_name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_system`
+--
+
+CREATE TABLE `ticket_system` (
+  `ticket_id` int(11) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `qty` varchar(5) NOT NULL,
+  `unit_price` varchar(20) NOT NULL,
+  `subtotal` varchar(20) NOT NULL,
+  `discount` varchar(20) NOT NULL,
+  `total` varchar(20) NOT NULL,
+  `tax` varchar(20) NOT NULL,
+  `employee_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendorinfo`
+--
+
+CREATE TABLE `vendorinfo` (
+  `vendor_id` int(11) NOT NULL,
+  `vendor_name` varchar(100) NOT NULL,
+  `vendor_number` varchar(100) NOT NULL,
+  `vendor_address` varchar(100) NOT NULL,
+  `company_code` varchar(100) NOT NULL,
+  `shipments` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zreport_system`
+--
+
+CREATE TABLE `zreport_system` (
+  `zreport_id` int(11) NOT NULL,
+  `total_sales` varchar(50) NOT NULL,
+  `transactions` varchar(50) NOT NULL,
+  `new_customers` varchar(50) NOT NULL,
+  `opening_amount` varchar(50) NOT NULL,
+  `closing_amount` varchar(50) NOT NULL,
+  `short` varchar(50) NOT NULL,
+  `cash_sales` varchar(50) NOT NULL,
+  `cash_returns` varchar(50) NOT NULL,
+  `drops` varchar(50) NOT NULL,
+  `payouts` varchar(50) NOT NULL,
+  `pay_ins` varchar(50) NOT NULL,
+  `purchases` varchar(50) NOT NULL,
+  `ticket_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `customer_info`
+--
+ALTER TABLE `customer_info`
+  ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Indexes for table `dailysales`
+--
+ALTER TABLE `dailysales`
+  ADD PRIMARY KEY (`daily_sales_id`);
+
+--
+-- Indexes for table `employee_id`
+--
+ALTER TABLE `employee_id`
+  ADD PRIMARY KEY (`employee_id`);
+
+--
+-- Indexes for table `employee_info`
+--
+ALTER TABLE `employee_info`
+  ADD PRIMARY KEY (`employee_information`);
+
+--
+-- Indexes for table `inventory_system`
+--
+ALTER TABLE `inventory_system`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `storelevel_signup`
+--
+ALTER TABLE `storelevel_signup`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ticket_system`
+--
+ALTER TABLE `ticket_system`
+  ADD PRIMARY KEY (`ticket_id`);
+
+--
+-- Indexes for table `vendorinfo`
+--
+ALTER TABLE `vendorinfo`
+  ADD PRIMARY KEY (`vendor_id`);
+
+--
+-- Indexes for table `zreport_system`
+--
+ALTER TABLE `zreport_system`
+  ADD PRIMARY KEY (`zreport_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `customer_info`
+--
+ALTER TABLE `customer_info`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `dailysales`
+--
+ALTER TABLE `dailysales`
+  MODIFY `daily_sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `employee_id`
+--
+ALTER TABLE `employee_id`
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `employee_info`
+--
+ALTER TABLE `employee_info`
+  MODIFY `employee_information` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `inventory_system`
+--
+ALTER TABLE `inventory_system`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `storelevel_signup`
+--
+ALTER TABLE `storelevel_signup`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ticket_system`
+--
+ALTER TABLE `ticket_system`
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `vendorinfo`
+--
+ALTER TABLE `vendorinfo`
+  MODIFY `vendor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `zreport_system`
+--
+ALTER TABLE `zreport_system`
+  MODIFY `zreport_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

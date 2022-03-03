@@ -1,0 +1,14 @@
+INSERT INTO product_inventory VALUE(NULL, '1', '1', 'Windex', 1, 'Sponge', 
+'Picks up spills.', '1', 9.99, 9.99, '9.99', 20, '0', '10', 1);
+
+INSERT INTO product_inventory VALUE(NULL, '2', '2', 'Nabisco', 2, 'Oreos', 
+'Delicous cookies.', '2', 5.99, 5.99, '5.99', 20, '0', '10', 2);	
+
+INSERT INTO product_inventory VALUE(NULL, '3', '3', 'Colgate', 3, 'Cavity Prevention Toothpaste', 
+'Brighten smile.', '3', 3.99, 3.99, '3.99', 20, '0', '10', 3);	
+
+INSERT INTO product_inventory VALUE(NULL, '4', '4', 'Glad', 4, 'Trash Bags', 
+'collects trash.', '4', 7.99, 7.99, '7.99', 20, '0', '10', 4);	
+
+INSERT INTO product_inventory VALUE(NULL, '5', '5', 'General Mills', 5, 'Lucky Charms', 
+'Great cereal.', '5', 15.99, 15.99, '15.99', 20, '0', '10', 5);	
